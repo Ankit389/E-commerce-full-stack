@@ -6,7 +6,7 @@ import { ShopContext } from '../../contexs/ShopContexs';
 
 
 const AddToCart = () => {
-    const {getTotalCartAmount, all_product, AddToCart, removeFromCart } = useContext(ShopContext);
+    const {getTotalCartAmount, all_product, addToCart, removeFromCart } = useContext(ShopContext);
     return (
         <div className='addtocart'>
             <div className="addtocart-format-main">
@@ -21,15 +21,15 @@ const AddToCart = () => {
             <hr />
 
             {all_product.map((e)=>{
-                if(AddToCart[e.id]>0)
+                if(addToCart[e.id]>0)
               {
                return <div >
                <div className="cartitems-format">
                    <img src={e.image} alt="" className='carticon-product-icon' />
                    <p>{e.name}</p>
                    <p>${e.new_price}</p>
-                   <button className='cartitems-quantity'>{AddToCart[e.id]}</button>
-                   <p>${e.new_price*AddToCart[e.id]}</p>
+                   <button className='cartitems-quantity'>{addToCart[e.id]}</button>
+                   <p>${e.new_price*addToCart[e.id]}</p>
                    <img src={remove_icon} onClick={() => {removeFromCart(e.id) }} alt="" />
                </div>
                <hr />
